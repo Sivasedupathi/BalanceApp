@@ -1,26 +1,22 @@
 package BalanceApp;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CustomerAccountController {
-
-    Double balance = 0.00;
 
     @Autowired
     private CustomerAccountService service;
 
     @GetMapping("/balance/{id}")
     public Double getBalance(@PathVariable Long id) {
-        try{
-            balance = service.getBalance(id);
-        }catch (Exception e) {
-            System.out.println("Exception error");
-        }
-        return balance;
+        return service.getBalance(id);
+    }
+
+    @PostMapping("/balance/register")
+    public Customer insertCustomerInDb(@RequestBody Customer customer) {
+        return  service.insertCustomerIntoDatabase(customer);
     }
 
 }

@@ -10,12 +10,12 @@ import javax.persistence.Table;
 public class CustomerAccount {
 
     @Id
-    private Long id;
+    private Long cardNo;
     private String name;
     private Double balance;
 
     public Long getId() {
-        return id;
+        return cardNo;
     }
 
     public String getName() {

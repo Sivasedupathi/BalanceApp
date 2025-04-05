@@ -7,11 +7,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomerAccountService {
     @Autowired
-    public CustomerAccountRepository repository;
+    public CustomerAccountRepository accountRepository;
+    @Autowired
+    public CustomerRepository customerRepository;
 
     public Double getBalance(Long id) {
-        return repository.findById(id)
-                .map(CustomerAccount::getBalance)
-                .orElseThrow(() -> new RuntimeException("Account not found"));
+        if (customerRepository.existsById(id)) {
+            return accountRepository.findById(id)
+                    .map(CustomerAccount::getBalance)
+                    .orElseThrow(() -> new RuntimeException("Account not found"));
+        } else {
+            throw new RuntimeException("Please register");
+        }
+
+    }
+
+    public Customer insertCustomerIntoDatabase(Customer customer) {
+        return customerRepository.save(customer);
     }
 }
