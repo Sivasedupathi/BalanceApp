@@ -12,14 +12,14 @@ public class CustomerAccountService {
     public CustomerRepository customerRepository;
 
     public Double getBalance(Long id) {
+        Double data = -1.0;
+
         if (customerRepository.existsById(id)) {
             return accountRepository.findById(id)
                     .map(CustomerAccount::getBalance)
                     .orElseThrow(() -> new RuntimeException("Account not found"));
-        } else {
-            throw new RuntimeException("Please register");
         }
-
+        return data;
     }
 
     public Customer insertCustomerIntoDatabase(Customer customer) {

@@ -1,7 +1,11 @@
 BalanceApp/CustomerAccountService.java
  BalanceApp.CustomerAccountService
+BalanceApp/Customer.java
+ BalanceApp.Customer
 BalanceApp/CustomerAccount.java
  BalanceApp.CustomerAccount
+BalanceApp/CustomerRepository.java
+ BalanceApp.CustomerRepository
 BalanceApp/CustomerAccountController.java
  BalanceApp.CustomerAccountController
 BalanceApp/BalanceAppApplication.java
