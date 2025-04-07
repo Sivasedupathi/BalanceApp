@@ -11,7 +11,7 @@ public class CustomerAccountService {
     @Autowired
     public CustomerRepository customerRepository;
 
-    public Double getBalance(Long id) {
+    public Double getBalance(String id) {
         Double data = -1.0;
 
         if (customerRepository.existsById(id)) {

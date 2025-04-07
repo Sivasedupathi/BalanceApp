@@ -16,11 +16,11 @@ import javax.persistence.Table;
 public class Customer {
 
     @Id
-    private Long cardNo;
+    private String cardNo;
     private String name;
     private String password;
 
-    public void setCardNo(Long cardNo) {
+    public void setCardNo(String cardNo) {
         this.cardNo = cardNo;
     }
 

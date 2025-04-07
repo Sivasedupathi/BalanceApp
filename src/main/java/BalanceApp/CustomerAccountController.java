@@ -11,13 +11,8 @@ public class CustomerAccountController {
     @Autowired
     private CustomerAccountService service;
 
-//    @GetMapping("/balance/{id}")
-//    public Double getBalance(@PathVariable Long id) {
-//        return service.getBalance(id);
-//    }
-
     @GetMapping("/balance/{id}")
-    public ResponseEntity<Object> getBalance(@PathVariable Long id) {
+    public ResponseEntity<Object> getBalance(@PathVariable String id) {
         Double data = service.getBalance(id);
         if (data != -1.0) {
             return ResponseHandler.generateResponse("Successfully retrieved data!", HttpStatus.OK, data);
@@ -26,11 +21,6 @@ public class CustomerAccountController {
         }
 
     }
-
-//    @PostMapping("/balance/register")
-//    public Customer insertCustomerInDb(@RequestBody Customer customer) {
-//        return  service.insertCustomerIntoDatabase(customer);
-//    }
 
     @PostMapping("/balance/register")
     public ResponseEntity<Object> insertCustomerInDb(@RequestBody Customer customer) {
